@@ -1,0 +1,210 @@
+.navbar {
+    overflow: hidden;
+    background-color: #DAE8FC;
+}
+
+.navbar a {
+    float: right;
+    display: block;
+    color: black;
+    font-family: Helvetica;
+    font-weight: 600;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+.navbar .logo {
+    float: left;
+}
+
+.navbar a:hover {
+    background-color: #f0932b;
+    color: black;
+}
+
+.navbar .logo img {
+    position: absolute;
+    top: 8px;
+    width: 45px;
+
+}
+
+.navbar .logo:hover {
+    background-color: #DAE8FC;
+}
+
+.about {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: 20px;
+    align-items: start;
+}
+
+.imageinfo {
+    text-align: center;
+}
+
+.projects {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 0.1fr 1.9fr;
+    grid-template-areas: "project-heading project-heading project-heading"
+        "project1 project2 project3";
+    grid-gap: 20px;
+    text-align: center;
+}
+
+.box {
+    border: 1px solid black;
+    box-sizing: border-box;
+    width: 100%;
+
+    margin: 1%;
+    padding: 15px;
+}
+
+.project-heading {
+    grid-area: project-heading;
+}
+
+.project1 {
+    grid-area: project1;
+
+}
+
+.project2 {
+    grid-area: project2;
+}
+
+.project3 {
+    grid-area: project3;
+}
+
+
+.study {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 0.1fr 1.9f;
+    grid-template-areas: "studhead certhead"
+        "education certifications";
+    text-align: center;
+    grid-gap: 50px;
+}
+
+.study-heading {
+    grid-area: studhead;
+}
+
+.cert-heading {
+    grid-area: certhead;
+}
+
+.education {
+    grid-area: education;
+
+}
+
+.certifications {
+    grid-area: certifications;
+}
+
+.study img {
+    width: 75px;
+    height: 70px;
+}
+
+.experience {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 0.1fr 1.9fr;
+    grid-template-areas: "exphead"
+        "expmain";
+    text-align: center;
+
+}
+
+.exphead {
+    grid-area: exphead;
+}
+
+.expmain {
+    grid-area: expmain;
+}
+
+.experience1 {
+    display: inline;
+}
+
+.contact {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-areas: "blogs contact-form";
+    text-align: center;
+    grid-gap: 50px;
+}
+
+.blogs {
+    grid-area: blogs;
+}
+
+.contact-form {
+    grid-area: contact-form;
+
+
+}
+
+.blogs img {
+    height: 70px;
+    width: 70px;
+}
+
+
+form {
+    padding: 30px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #fff;
+
+}
+
+input[type="submit"] {
+    background-color: #4CAF50;
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 4px;
+}
+
+input[type="text"],
+textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+footer {
+    background-color: #F8CECC;
+    display: grid;
+    grid-template-columns: 0.1fr 1.9fr;
+    grid-template-areas: "foothead icons";
+    grid-gap: 1000px;
+
+}
+
+footer h2 {
+    grid-area: foothead
+}
+
+.icons {
+    grid-area: icons;
+}
