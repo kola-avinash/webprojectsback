@@ -11,7 +11,7 @@ async function fetchAll(res) {
         const cursor = client.db("webperojectsdb").collection("projects").find({});
         const results = await cursor.toArray();
         res.writeHead(200, { 'Content-Type': 'application/json' });
-        res.end(JSON.stringify(results));
+        res.end(JSON.stringify({ Projects: results || [] }));
     } catch (e) {
         res.writeHead(500);
         res.end("Database error");
@@ -27,7 +27,7 @@ async function fetchOne(res, id) {
         const result = await client.db("webperojectsdb").collection("projects").findOne({ id: id });
         if (result) {
             res.writeHead(200, { 'Content-Type': 'application/json' });
-            res.end(JSON.stringify(result));
+            res.end(JSON.stringify(result ? { Projects: [result] } : { Projects: [] }));
         } else {
             res.writeHead(404, { 'Content-Type': 'application/json' });
             res.end(JSON.stringify({ error: "Project not found" }));
@@ -58,6 +58,7 @@ const server = http.createServer((req, res) => {
     }
 
     if (req.url.startsWith("/api")) {
+        res.setHeader("Access-Control-Allow-Origin", "*");
         const urlParams = new URL(req.url, `http://${req.headers.host}`);
         const id = urlParams.searchParams.get("id");
         if (id) {
