@@ -11,7 +11,7 @@ async function fetchAll(res) {
         const cursor = client.db("webperojectsdb").collection("projects").find({});
         const results = await cursor.toArray();
         res.writeHead(200, { 'Content-Type': 'application/json' });
-        res.end(JSON.stringify({ Projects: results || [] }));
+        res.end(JSON.stringify(results))
     } catch (e) {
         res.writeHead(500);
         res.end("Database error");
@@ -27,7 +27,7 @@ async function fetchOne(res, id) {
         const result = await client.db("webperojectsdb").collection("projects").findOne({ id: id });
         if (result) {
             res.writeHead(200, { 'Content-Type': 'application/json' });
-            res.end(JSON.stringify(result ? { Projects: [result] } : { Projects: [] }));
+            res.end(JSON.stringify(result))
         } else {
             res.writeHead(404, { 'Content-Type': 'application/json' });
             res.end(JSON.stringify({ error: "Project not found" }));
